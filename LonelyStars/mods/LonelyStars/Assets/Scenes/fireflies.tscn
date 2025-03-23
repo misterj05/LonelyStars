@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://mods/LonelyStars/Assets/Scenes/firefly.tscn" type="PackedScene" id=3]
+
+[node name="LS_fireflies" type="Spatial"]
+
+[node name="LS_firefly" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.2392, 4.99541, -30.2179 )
+
+[node name="LS_firefly2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 93.9194, 4.99541, -28.6831 )
+
+[node name="LS_firefly3" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 116.446, 4.95582, -44.1533 )
+
+[node name="LS_firefly4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.375, 4.95582, -62.682 )
+
+[node name="LS_firefly5" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 92.688, 4.95582, -64.41 )
+
+[node name="LS_firefly6" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75.487, 4.95582, -64.4624 )
+
+[node name="LS_firefly7" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.6416, 4.95582, -64.2549 )
+
+[node name="LS_firefly8" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 64.9019, 5.33071, -45.8168 )
+
+[node name="LS_firefly9" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.6667, 5.33071, -37.5706 )
+
+[node name="LS_firefly10" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.5946, 4.67695, -33.2871 )
+
+[node name="LS_firefly11" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 36.5669, 4.99541, -96.4804 )
+
+[node name="LS_firefly12" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 15.8617, 4.99541, -93.695 )
+
+[node name="LS_firefly13" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 13.9915, 4.99541, -105.908 )
+
+[node name="LS_firefly14" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.98255, 4.99541, -93.7842 )
+
+[node name="LS_firefly15" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1351, 9.71644, -78.1112 )
+
+[node name="LS_firefly16" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5954, 9.71644, -76.3151 )
+
+[node name="LS_firefly17" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -47.1884, 9.71644, -61.9847 )
+
+[node name="LS_firefly18" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -44.348, 9.71644, -19.0287 )
+
+[node name="LS_firefly19" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -52.4688, 9.71644, 11.5135 )
+
+[node name="LS_firefly20" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.377, 4.99541, 30.9443 )
+
+[node name="LS_firefly21" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8.01808, 4.99541, 38.0004 )
+
+[node name="LS_firefly22" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -73.8106, 14.5189, 56.6328 )
+
+[node name="LS_firefly23" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249786, 5.41239, -74.079 )
+
+[node name="LS_firefly24" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249786, 5.41239, -68.2416 )

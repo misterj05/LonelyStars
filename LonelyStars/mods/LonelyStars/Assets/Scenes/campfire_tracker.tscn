@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://mods/LonelyStars/Scripts/campfire_tracker.gd" type="Script" id=1]
+
+[node name="LS_campfire_tracker" type="Spatial"]
+script = ExtResource( 1 )
