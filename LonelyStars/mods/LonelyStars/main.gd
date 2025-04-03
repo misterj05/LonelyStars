@@ -86,6 +86,8 @@ func _ready():
 	if tb != null:
 		_init_config()
 	else: config = LS_config_default
+	if LSTAPI != null:
+		LSTAPI.connect("time_has_jumped", self, "_handle_time_jump")
 	pd.connect("_rain_toggle", self, "_handle_rain")
 	get_tree().connect("node_added", self, "_node_scanner")
 
@@ -103,6 +105,10 @@ func _handle_rain(rain):
 			in_rain = false
 			worldenv._rain_env(false, true)
 			_set_color_by_time(LSTAPI.check_time(), false)
+
+func _handle_time_jump(time):
+	_cleanup()
+	_rebuild()
 
 func _rebuild():
 	_node_scanner(worldenv)
