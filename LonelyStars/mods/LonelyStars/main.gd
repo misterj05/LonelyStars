@@ -74,12 +74,9 @@ func _on_config_update(mod_id: String, new_config: Dictionary):
 
 	config = new_config
 	_check_config()
-	
+
 	_cleanup()
 	_rebuild()
-
-func get_config():
-	return config
 
 func _ready():
 	print(ID + " has loaded!")
