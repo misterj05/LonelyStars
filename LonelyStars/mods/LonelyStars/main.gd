@@ -124,7 +124,7 @@ func _cleanup():
 				if hud.name == "main" && LS_clock_loaded:
 					if free_cam_label != null: free_cam_label.set("margin_top", free_cam_label.get("margin_top") - 20)
 				LS_clock_loaded = false
-				if hud.has_node("LS_clock"): hud.remove_child(hud.get_node("LS_clock"))
+				if hud.has_node("LS_clock"): hud.call_deferred("remove_child", hud.get_node("LS_clock"))
 			false: # This is needed to catch if config was changed while loaded.
 				if LS_clock_loaded:
 					hud.remove_child(hud.get_node("LS_clock"))
