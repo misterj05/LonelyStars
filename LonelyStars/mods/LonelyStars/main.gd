@@ -116,7 +116,7 @@ func _cleanup():
 		match config["world_env"]:
 			true:
 				print(ID + ": Unloading " + str(worldenv))
-				LSTAPI.disconnect("hour_has_passed", self, "_set_color_by_time")
+				if LSTAPI.is_connected("hour_has_passed", self, "_set_color_by_time"): LSTAPI.disconnect("hour_has_passed", self, "_set_color_by_time")
 				LS_worldenv_loaded = false
 			false: # This is needed to catch if config was changed while loaded.
 				if LS_worldenv_loaded:
@@ -131,7 +131,7 @@ func _cleanup():
 		print(ID + ": Unloading " + str(main_zone))
 		match config["fireflies"]:
 			true:
-				main_zone.call_deferred("remove_child", main_zone.get_node("LS_fireflies"))
+				if main_zone.has_node("LS_fireflies"): main_zone.call_deferred("remove_child", main_zone.get_node("LS_fireflies"))
 				LS_fireflies_loaded = false
 			false: # This is needed to catch if config was changed while loaded.
 				if LS_fireflies_loaded:
@@ -139,7 +139,7 @@ func _cleanup():
 					LS_fireflies_loaded = false
 		match config["lighthouse"]:
 			true:
-				main_zone.call_deferred("remove_child", main_zone.get_node("LS_lighthouse"))
+				if main_zone.has_node("LS_lighthouse"): main_zone.call_deferred("remove_child", main_zone.get_node("LS_lighthouse"))
 				LS_lighthouse_loaded = false
 			false: # This is needed to catch if config was changed while loaded.
 				if LS_lighthouse_loaded:
