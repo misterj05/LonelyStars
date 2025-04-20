@@ -6,15 +6,18 @@ const mod_ver = "0.1.1"
 onready var worldenv: WorldEnvironment
 onready var main_zone
 var campfires: Array = []
+var hud: Node
 
 var LS_fireflies = preload("res://mods/LonelyStars/Assets/Scenes/fireflies.tscn")
 var LS_campfire = preload("res://mods/LonelyStars/Assets/Scenes/campfire.tscn")
 var LS_campfire_tracker = preload("res://mods/LonelyStars/Assets/Scenes/campfire_tracker.tscn")
 var LS_lighthouse = preload("res://mods/LonelyStars/Assets/Scenes/lighthouse.tscn")
+var LS_clock = preload("res://mods/LonelyStars/Assets/Scenes/clock.tscn")
 
 var LS_worldenv_loaded = false
 var LS_fireflies_loaded = false
 var LS_lighthouse_loaded = false
+var LS_clock_loaded = false
 
 var des_color = null
 var in_rain = false
@@ -25,7 +28,8 @@ var LS_config_default: Dictionary = {
 	"world_env": true,
 	"fireflies": true,
 	"campfire": true,
-	"lighthouse": true
+	"lighthouse": true,
+	"clock": true
 }
 
 onready var pd = get_node("/root/PlayerData")
@@ -110,8 +114,24 @@ func _handle_time_jump(time):
 func _rebuild():
 	_node_scanner(worldenv)
 	_node_scanner(main_zone)
+	_node_scanner(hud)
 
 func _cleanup():
+	if is_instance_valid(hud):
+		var free_cam_label = hud.get_node_or_null("in_game/freecamwarning")
+		match config["clock"]:
+			true:
+				if hud.name == "main" && LS_clock_loaded:
+					if free_cam_label != null: free_cam_label.set("margin_top", free_cam_label.get("margin_top") - 20)
+				LS_clock_loaded = false
+				if hud.has_node("LS_clock"): hud.remove_child(hud.get_node("LS_clock"))
+			false: # This is needed to catch if config was changed while loaded.
+				if LS_clock_loaded:
+					hud.remove_child(hud.get_node("LS_clock"))
+					LS_clock_loaded = false
+					if hud.name == "main":
+						if free_cam_label != null: free_cam_label.set("margin_top", free_cam_label.get("margin_top") - 20)
+		hud.disconnect("tree_exiting", self, "_cleanup")
 	if is_instance_valid(worldenv):
 		match config["world_env"]:
 			true:
@@ -151,6 +171,15 @@ func _node_scanner(node: Node):
 	match node.get_path():
 		NodePath("/root/world"): # Temp for rain_debug
 			world = node
+		NodePath("/root/main_menu"), NodePath("/root/playerhud/main"):
+			if config["clock"]:
+				node.call_deferred("add_child", LS_clock.instance())
+				LS_clock_loaded = true
+				if node.name == "main":
+					var free_cam_label = node.get_node_or_null("in_game/freecamwarning")
+					if free_cam_label != null: free_cam_label.set("margin_top", free_cam_label.get("margin_top") + 20)
+			node.connect("tree_exiting", self, "_cleanup")
+			hud = node
 		NodePath("/root/world/Viewport/main/map/main_map/WorldEnvironment"), NodePath("/root/main_menu/world/Viewport/main/map/main_map/WorldEnvironment"):
 			node.connect("tree_exiting", self, "_cleanup")
 			worldenv = node # Needs to go above _set_color_by_time so worldenv is valid for that function
