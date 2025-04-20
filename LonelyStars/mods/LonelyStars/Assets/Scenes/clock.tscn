@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Themes/main.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Themes/panel_green.tres" type="StyleBox" id=2]
+[ext_resource path="res://mods/LonelyStars/Scripts/clock.gd" type="Script" id=3]
+
+[node name="LS_clock" type="Control"]
+script = ExtResource( 3 )
+
+[node name="clock" type="Panel" parent="."]
+margin_left = 905.0
+margin_top = 10.0
+margin_right = 1012.0
+margin_bottom = 48.0
+grow_horizontal = 2
+rect_min_size = Vector2( 46, 32 )
+theme = ExtResource( 1 )
+custom_styles/panel = ExtResource( 2 )
+
+[node name="clock_container" type="HBoxContainer" parent="clock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_right = -8.0
+margin_bottom = -2.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="hour" type="Label" parent="clock/clock_container"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 22.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 1, 0.933333, 0.835294, 1 )
+text = "12"
+align = 1
+valign = 1
+
+[node name="colon" type="Label" parent="clock/clock_container"]
+margin_left = 26.0
+margin_top = 1.0
+margin_right = 31.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 1, 0.933333, 0.835294, 1 )
+text = ":"
+align = 1
+valign = 1
+
+[node name="min" type="Label" parent="clock/clock_container"]
+margin_left = 35.0
+margin_top = 1.0
+margin_right = 55.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 1, 0.933333, 0.835294, 1 )
+text = "12"
+align = 1
+valign = 1
+
+[node name="ampm" type="Label" parent="clock/clock_container"]
+margin_left = 59.0
+margin_top = 1.0
+margin_right = 88.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 1, 0.933333, 0.835294, 1 )
+text = "AM"
+align = 1
+valign = 1
