@@ -5,12 +5,14 @@
 [ext_resource path="res://mods/LonelyStars/Scripts/clock.gd" type="Script" id=3]
 
 [node name="LS_clock" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
 script = ExtResource( 3 )
 
 [node name="clock" type="Panel" parent="."]
-margin_left = 905.0
+margin_left = -52.0
 margin_top = 10.0
-margin_right = 1012.0
+margin_right = 52.0
 margin_bottom = 48.0
 grow_horizontal = 2
 rect_min_size = Vector2( 46, 32 )
@@ -27,9 +29,8 @@ grow_horizontal = 2
 alignment = 1
 
 [node name="hour" type="Label" parent="clock/clock_container"]
-margin_left = 2.0
 margin_top = 1.0
-margin_right = 22.0
+margin_right = 20.0
 margin_bottom = 35.0
 custom_colors/font_color = Color( 1, 0.933333, 0.835294, 1 )
 text = "12"
@@ -37,9 +38,9 @@ align = 1
 valign = 1
 
 [node name="colon" type="Label" parent="clock/clock_container"]
-margin_left = 26.0
+margin_left = 24.0
 margin_top = 1.0
-margin_right = 31.0
+margin_right = 29.0
 margin_bottom = 35.0
 custom_colors/font_color = Color( 1, 0.933333, 0.835294, 1 )
 text = ":"
@@ -47,9 +48,9 @@ align = 1
 valign = 1
 
 [node name="min" type="Label" parent="clock/clock_container"]
-margin_left = 35.0
+margin_left = 33.0
 margin_top = 1.0
-margin_right = 55.0
+margin_right = 53.0
 margin_bottom = 35.0
 custom_colors/font_color = Color( 1, 0.933333, 0.835294, 1 )
 text = "12"
@@ -57,9 +58,9 @@ align = 1
 valign = 1
 
 [node name="ampm" type="Label" parent="clock/clock_container"]
-margin_left = 59.0
+margin_left = 57.0
 margin_top = 1.0
-margin_right = 88.0
+margin_right = 86.0
 margin_bottom = 35.0
 custom_colors/font_color = Color( 1, 0.933333, 0.835294, 1 )
 text = "AM"
