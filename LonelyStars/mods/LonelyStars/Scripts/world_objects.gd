@@ -24,7 +24,7 @@ func _load():
 func _set_visibility_by_time(time):
 	if is_lighthouse: # Only show lighthouse at night
 		match time["hour"]:
-			20, 21, 22, 23, 24, 0, 1, 2, 3, 4:
+			20, 21, 22, 23, 0, 1, 2, 3, 4:
 				new_state = "fade_in"
 			5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19:
 				new_state = "fade_out"
@@ -32,7 +32,7 @@ func _set_visibility_by_time(time):
 				print(LS.ID + ": Failed to get hour for World Object: " + str(self))
 	else:
 		match time["hour"]:
-			17, 18, 19, 20, 21, 22, 23, 24, 0, 1, 2, 3, 4:
+			17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4:
 				new_state = "fade_in"
 			5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16:
 				new_state = "fade_out"
@@ -40,13 +40,12 @@ func _set_visibility_by_time(time):
 				print(LS.ID + ": Failed to get hour for World Object: " + str(self))
 
 	if new_state != current_state:
-		if is_lighthouse: print("new_state did not equal current state")
+		if is_lighthouse: print(LS.ID + ": new_state did not equal current state: " + str(self))
 		current_state = new_state
 		match current_state:
 			"fade_in":
 				$Anim.play("Show")
 				if is_lighthouse:
-					print("Queued lighthouse")
 					$Anim.queue("Spin")
 				if !visible:
 					visible = true
@@ -71,11 +70,10 @@ func _on_config_update(mod_id: String, new_config: Dictionary):
 		return
 	
 	if is_lighthouse:
-		match time:
+		match time["hour"]:
 			20, 21, 22, 23, 0, 1, 2, 3, 4:
 				match LS.config["lighthouse"]:
 					true:
-						print("is lighthouse, lighthouse true")
 						$Anim.play("Show")
 						$Anim.queue("Spin")
 						current_state = "fade_in"
@@ -89,3 +87,6 @@ func _on_config_update(mod_id: String, new_config: Dictionary):
 					false:
 						if LS.LS_lighthouse_loaded:
 							$Anim.play("Hide")
+
+func _exit_tree():
+	queue_free()
