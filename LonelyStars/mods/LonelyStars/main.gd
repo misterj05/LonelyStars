@@ -145,6 +145,7 @@ func _cleanup():
 					LS_worldenv_loaded = false
 					if dn == null:
 						_tween_property(worldenv, "des_color", Color("#ffeed5"))
+						_tween_property(worldenv, "des_light", 0.12)
 		worldenv.disconnect("tree_exiting", self, "_cleanup")
 
 	if is_instance_valid(main_zone):
@@ -211,19 +212,23 @@ func _set_color_by_time(time, should_tween):
 			0, 1, 2, 3, 4, 20, 21, 22, 23, 24:
 				if should_tween: 
 					_tween_property(worldenv, "des_color", Color("#3566b7"))
-				else: worldenv.des_color = Color("#3566b7") # New: 3566b7 Old: 283e62 OG: 14253e
+					_tween_property(worldenv, "des_light", 0.012)
+				else: worldenv.des_color = Color("#3566b7"); worldenv.des_light = 0.012 # New: 3566b7 Old: 283e62 OG: 14253e
 			5, 6, 7:
 				if should_tween:
 					_tween_property(worldenv, "des_color", Color("#ffd6e7"))
-				else: worldenv.des_color = Color("#ffd6e7") # New: ffeed5 Old: ffd6e7
+					_tween_property(worldenv, "des_light", 0.08)
+				else: worldenv.des_color = Color("#ffd6e7"); worldenv.des_light = 0.08 # New: ffeed5 Old: ffd6e7
 			17, 18, 19:
 				if should_tween:
 					_tween_property(worldenv, "des_color", Color("#ffa370"))
-				else: worldenv.des_color = Color("#ffa370")
+					_tween_property(worldenv, "des_light", 0.08)
+				else: worldenv.des_color = Color("#ffa370"); worldenv.des_light = 0.08
 			8, 9, 10, 11, 12, 13, 14, 15, 16:
 				if should_tween:
 					_tween_property(worldenv, "des_color", Color("#d5eeff"))
-				else: worldenv.des_color = Color("#d5eeff")
+					_tween_property(worldenv, "des_light", 0.12)
+				else: worldenv.des_color = Color("#d5eeff"); worldenv.des_light = 0.12
 			_:
 				worldenv.des_color = Color("ffeed5")
 				print(ID + " Error: " + str(time) + ": could not set world_env by hour, hour is likely overflowed")
