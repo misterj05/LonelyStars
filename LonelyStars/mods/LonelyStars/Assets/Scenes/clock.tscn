@@ -1,15 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Themes/main.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Themes/panel_green.tres" type="StyleBox" id=2]
 [ext_resource path="res://mods/LonelyStars/Scripts/clock.gd" type="Script" id=3]
+[ext_resource path="res://mods/LonelyStars/Assets/Textures/Clock/clock_minute_hand.png" type="Texture" id=4]
+[ext_resource path="res://mods/LonelyStars/Assets/Textures/Clock/clock_second_hand.png" type="Texture" id=5]
+[ext_resource path="res://mods/LonelyStars/Assets/Textures/Clock/clock_hour_hand.png" type="Texture" id=6]
+[ext_resource path="res://mods/LonelyStars/Assets/Textures/Clock/clock_base.png" type="Texture" id=7]
+[ext_resource path="res://mods/LonelyStars/Assets/Textures/Clock/clock_center.png" type="Texture" id=8]
 
 [node name="LS_clock" type="Control"]
 anchor_left = 0.5
 anchor_right = 0.5
 script = ExtResource( 3 )
 
-[node name="clock" type="Panel" parent="."]
+[node name="digital_clock" type="Panel" parent="."]
+visible = false
 margin_left = -52.0
 margin_top = 10.0
 margin_right = 52.0
@@ -19,7 +25,7 @@ rect_min_size = Vector2( 46, 32 )
 theme = ExtResource( 1 )
 custom_styles/panel = ExtResource( 2 )
 
-[node name="clock_container" type="HBoxContainer" parent="clock"]
+[node name="clock_container" type="HBoxContainer" parent="digital_clock"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 9.0
@@ -28,7 +34,7 @@ margin_bottom = -2.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="hour" type="Label" parent="clock/clock_container"]
+[node name="hour" type="Label" parent="digital_clock/clock_container"]
 margin_top = 1.0
 margin_right = 20.0
 margin_bottom = 35.0
@@ -37,7 +43,7 @@ text = "12"
 align = 1
 valign = 1
 
-[node name="colon" type="Label" parent="clock/clock_container"]
+[node name="colon" type="Label" parent="digital_clock/clock_container"]
 margin_left = 24.0
 margin_top = 1.0
 margin_right = 29.0
@@ -47,7 +53,7 @@ text = ":"
 align = 1
 valign = 1
 
-[node name="min" type="Label" parent="clock/clock_container"]
+[node name="min" type="Label" parent="digital_clock/clock_container"]
 margin_left = 33.0
 margin_top = 1.0
 margin_right = 53.0
@@ -57,7 +63,7 @@ text = "12"
 align = 1
 valign = 1
 
-[node name="ampm" type="Label" parent="clock/clock_container"]
+[node name="ampm" type="Label" parent="digital_clock/clock_container"]
 margin_left = 57.0
 margin_top = 1.0
 margin_right = 86.0
@@ -66,3 +72,65 @@ custom_colors/font_color = Color( 1, 0.933333, 0.835294, 1 )
 text = "AM"
 align = 1
 valign = 1
+
+[node name="clock" type="Control" parent="."]
+visible = false
+margin_top = 64.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="clock_base" type="TextureRect" parent="clock"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 7 )
+
+[node name="minute_hand" type="Control" parent="clock"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="clock_minute_hand" type="TextureRect" parent="clock/minute_hand"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+
+[node name="hour_hand" type="Control" parent="clock"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="clock_hour_hand" type="TextureRect" parent="clock/hour_hand"]
+grow_horizontal = 2
+grow_vertical = 2
+rect_rotation = -45.0
+rect_pivot_offset = Vector2( 32, 33 )
+texture = ExtResource( 6 )
+
+[node name="second_hand" type="Control" parent="clock"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="clock_second_hand" type="TextureRect" parent="clock/second_hand"]
+margin_left = -2.0
+margin_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_rotation = -134.9
+rect_pivot_offset = Vector2( 33, 34 )
+texture = ExtResource( 5 )
+
+[node name="clock_center" type="TextureRect" parent="clock"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 8 )
