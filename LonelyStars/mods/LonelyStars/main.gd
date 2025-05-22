@@ -29,7 +29,8 @@ var LS_config_default: Dictionary = {
 	"fireflies": true,
 	"campfire": true,
 	"lighthouse": true,
-	"clock": true
+	"clock": true,
+	"digital_clock": false
 }
 
 onready var pd = get_node("/root/PlayerData")
@@ -122,7 +123,7 @@ func _cleanup():
 		match config["clock"]:
 			true:
 				if hud.name == "main" && LS_clock_loaded:
-					if free_cam_label != null: free_cam_label.set("margin_top", free_cam_label.get("margin_top") - 20)
+					if free_cam_label != null: free_cam_label.set("margin_left", free_cam_label.get("margin_left") - 400)
 				LS_clock_loaded = false
 				if hud.has_node("LS_clock"): hud.call_deferred("remove_child", hud.get_node("LS_clock"))
 			false: # This is needed to catch if config was changed while loaded.
@@ -130,7 +131,7 @@ func _cleanup():
 					hud.remove_child(hud.get_node("LS_clock"))
 					LS_clock_loaded = false
 					if hud.name == "main":
-						if free_cam_label != null: free_cam_label.set("margin_top", free_cam_label.get("margin_top") - 20)
+						if free_cam_label != null: free_cam_label.set("margin_left", free_cam_label.get("margin_left") - 400)
 		hud.disconnect("tree_exiting", self, "_cleanup")
 	if is_instance_valid(worldenv):
 		match config["world_env"]:
@@ -178,7 +179,7 @@ func _node_scanner(node: Node):
 				LS_clock_loaded = true
 				if node.name == "main":
 					var free_cam_label = node.get_node_or_null("in_game/freecamwarning")
-					if free_cam_label != null: free_cam_label.set("margin_top", free_cam_label.get("margin_top") + 20)
+					if free_cam_label != null: free_cam_label.set("margin_left", free_cam_label.get("margin_left") + 400)
 			node.connect("tree_exiting", self, "_cleanup")
 			hud = node
 		NodePath("/root/world/Viewport/main/map/main_map/WorldEnvironment"), NodePath("/root/main_menu/world/Viewport/main/map/main_map/WorldEnvironment"):
