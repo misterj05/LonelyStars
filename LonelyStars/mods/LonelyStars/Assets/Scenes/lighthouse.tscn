@@ -10,7 +10,7 @@ radial_segments = 6
 
 [sub_resource type="Gradient" id=10]
 interpolation_mode = 2
-colors = PoolColorArray( 1, 1, 1, 0, 1, 0.945098, 0.337255, 0.666667 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 0.968627, 0.619608, 0.619608 )
 
 [sub_resource type="GradientTexture2D" id=11]
 gradient = SubResource( 10 )
@@ -22,7 +22,7 @@ render_priority = 2
 flags_transparent = true
 flags_unshaded = true
 flags_do_not_receive_shadows = true
-albedo_color = Color( 1, 0.945098, 0.337255, 0.356863 )
+albedo_color = Color( 1, 0.968627, 0.619608, 0.619608 )
 albedo_texture = SubResource( 11 )
 
 [sub_resource type="SpatialMaterial" id=12]
@@ -38,7 +38,7 @@ radial_segments = 6
 [sub_resource type="Gradient" id=18]
 interpolation_mode = 2
 offsets = PoolRealArray( 0, 0.25, 0.525 )
-colors = PoolColorArray( 1, 0.988235, 0.858824, 0, 1, 0.945098, 0.337255, 0.619608, 1, 1, 1, 0 )
+colors = PoolColorArray( 1, 0.988235, 0.858824, 0, 1, 0.968627, 0.619608, 0.619608, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture2D" id=19]
 gradient = SubResource( 18 )
@@ -48,10 +48,10 @@ fill_to = Vector2( 0, 1 )
 render_priority = 2
 flags_transparent = true
 flags_do_not_receive_shadows = true
-albedo_color = Color( 1, 0.945098, 0.337255, 0.356863 )
+albedo_color = Color( 1, 0.968627, 0.619608, 0.619608 )
 albedo_texture = SubResource( 19 )
 emission_enabled = true
-emission = Color( 1, 0.945098, 0.337255, 1 )
+emission = Color( 1, 0.952941, 0.439216, 1 )
 emission_energy = 1.26
 emission_operator = 0
 emission_on_uv2 = false
