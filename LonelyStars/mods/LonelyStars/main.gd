@@ -1,7 +1,7 @@
 extends Node
 
 const ID = "LonelyStars"
-const mod_ver = "0.1.2"
+const mod_ver = "0.1.3"
 
 onready var worldenv: WorldEnvironment
 onready var main_zone
