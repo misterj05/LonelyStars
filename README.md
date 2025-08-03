@@ -1,3 +1,9 @@
+> [!IMPORTANT] 
+> #### This repository has moved to [Codeberg](https://codeberg.org/misterj05/LonelyStars).
+> #### All further development will be conducted there.
+
+---
+
 # LonelyStars
 LonelyStars adds Time States (Morning, Evening, Night) to WEBFISHING, while trying to stay as faithful as possible to the original game's art style.
 
